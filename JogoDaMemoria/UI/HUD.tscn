@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqn4e2vfb5mq8"]
+
+[ext_resource type="FontFile" uid="uid://c7bdh5gjkxfyu" path="res://Assets/fonts/Nunito-Bold.ttf" id="1_hiaqd"]
+[ext_resource type="Theme" uid="uid://cm6hg37g4v3b0" path="res://Resources/Themes/Panel.tres" id="1_lqjr5"]
+[ext_resource type="Texture2D" uid="uid://dl6u312arw1rl" path="res://Assets/ui/pause.png" id="2_33pwe"]
+[ext_resource type="Texture2D" uid="uid://p7ds14mmrojn" path="res://Assets/ui/return.png" id="3_wfbqu"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseButton.gd" id="4_3wnq4"]
+
+[sub_resource type="FontVariation" id="FontVariation_p633b"]
+base_font = ExtResource("1_hiaqd")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwsdh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy0y3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bj0c5"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdalm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_lqjr5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 580.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sections" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SectionScore" type="VBoxContainer" parent="Panel/Sections"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/Sections/SectionScore"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_p633b")
+theme_override_font_sizes/font_size = 30
+text = "score"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ScoreLabel" type="Label" parent="Panel/Sections/SectionScore"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_hiaqd")
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SectionTimer" type="VBoxContainer" parent="Panel/Sections"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/Sections/SectionTimer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_p633b")
+theme_override_font_sizes/font_size = 30
+text = "seconds"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TimerLabel" type="Label" parent="Panel/Sections/SectionTimer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_hiaqd")
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SectionMoves" type="VBoxContainer" parent="Panel/Sections"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/Sections/SectionMoves"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_p633b")
+theme_override_font_sizes/font_size = 30
+text = "pairs flipped"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MovesLabel" type="Label" parent="Panel/Sections/SectionMoves"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_hiaqd")
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SectionReset" type="VBoxContainer" parent="Panel/Sections"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="PauseButton" type="Button" parent="Panel/Sections/SectionReset"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iwsdh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iy0y3")
+icon = ExtResource("2_33pwe")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_3wnq4")
+
+[node name="RestartButton" type="Button" parent="Panel/Sections/SectionReset"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bj0c5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sdalm")
+icon = ExtResource("3_wfbqu")
+flat = true
+icon_alignment = 1
+expand_icon = true

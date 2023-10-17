@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cn34x5ywcfr3b"]
+
+[ext_resource type="FontFile" uid="uid://c7bdh5gjkxfyu" path="res://Assets/fonts/Nunito-Bold.ttf" id="1_kx0ji"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ky2x"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.694118, 0.694118, 0.694118, 0.858824)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.341176)
+shadow_size = 5
+shadow_offset = Vector2(3, 3)
+
+[resource]
+default_font = ExtResource("1_kx0ji")
+default_font_size = 20
+Label/colors/font_color = Color(0, 0, 0, 0.854902)
+Panel/styles/panel = SubResource("StyleBoxFlat_1ky2x")

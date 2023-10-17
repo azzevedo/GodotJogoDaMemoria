@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0h7bgnca0uyf"]
+
+[ext_resource type="Texture2D" uid="uid://bb58432ti4vc1" path="res://Assets/ui/title.png" id="1_8rvti"]
+[ext_resource type="Theme" uid="uid://cm6hg37g4v3b0" path="res://Resources/Themes/Panel.tres" id="1_e33un"]
+[ext_resource type="Script" path="res://Scripts/UI/PopUp.gd" id="1_w8qxp"]
+[ext_resource type="Theme" uid="uid://cn34x5ywcfr3b" path="res://Resources/Themes/Label.tres" id="2_jobk1"]
+[ext_resource type="FontFile" uid="uid://c7bdh5gjkxfyu" path="res://Assets/fonts/Nunito-Bold.ttf" id="3_v2tf7"]
+
+[node name="PopUp" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8qxp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.443137)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(900, 600)
+layout_mode = 2
+theme = ExtResource("1_e33un")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_8rvti")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_jobk1")
+theme_override_constants/line_spacing = 40
+theme_override_font_sizes/font_size = 27
+text = "Find all 26 pairs to win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PlayButton" type="Button" parent="CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.184314, 0.309804, 0, 1)
+theme_override_fonts/font = ExtResource("3_v2tf7")
+theme_override_font_sizes/font_size = 40
+text = "PLAY NOW!!"
+flat = true
+
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/PlayButton" to="." method="_On_play_button_pressed"]
